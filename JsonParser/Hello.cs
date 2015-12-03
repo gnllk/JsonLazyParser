@@ -5,7 +5,11 @@ using System.Text;
 
 namespace JsonParser
 {
-    class Hello
+    public class Hello
     {
+        public void SayYes()
+        {
+            Console.WriteLine("Yes");
+        }
     }
 }
