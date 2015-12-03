@@ -11,5 +11,9 @@ namespace JsonParser
         {
             Console.WriteLine("Yes");
         }
+        public void SayHello()
+        {
+            Console.WriteLine("Hello");
+        }
     }
 }
