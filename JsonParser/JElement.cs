@@ -104,12 +104,17 @@ namespace JsonParser
 
         public JElement Element(string name)
         {
-            return SubElements.Find(e => e.Name == name);
+            return SubElements.Find(e => e.Name == name) ?? new JElement();
         }
 
         public JElement Element(int index)
         {
-            return SubElements.ElementAt(index);
+            var list = SubElements;
+            if (index >= 0 && index < list.Count - 1)
+            {
+                SubElements.ElementAt(index);
+            }
+            return new JElement();
         }
 
         public JElement this[string name]
