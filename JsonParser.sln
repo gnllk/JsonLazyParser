@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonParser", "JsonParser\JsonParser.csproj", "{E433980F-787E-45E1-8487-3C1C6F34508F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonParser.Test", "JsonParser.Test\JsonParser.Test.csproj", "{A8C0DBFE-FA3C-45DE-AFB1-7C5C3A78A18F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E433980F-787E-45E1-8487-3C1C6F34508F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E433980F-787E-45E1-8487-3C1C6F34508F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E433980F-787E-45E1-8487-3C1C6F34508F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C0DBFE-FA3C-45DE-AFB1-7C5C3A78A18F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C0DBFE-FA3C-45DE-AFB1-7C5C3A78A18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C0DBFE-FA3C-45DE-AFB1-7C5C3A78A18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C0DBFE-FA3C-45DE-AFB1-7C5C3A78A18F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
