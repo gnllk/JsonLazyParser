@@ -110,9 +110,9 @@ namespace JsonParser
         public JElement Element(int index)
         {
             var list = SubElements;
-            if (index >= 0 && index < list.Count - 1)
+            if (index >= 0 && index < list.Count)
             {
-                SubElements.ElementAt(index);
+                return list.ElementAt(index);
             }
             return new JElement();
         }
