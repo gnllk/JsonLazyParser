@@ -3,7 +3,7 @@ A lazy Json parser using C# language
 
 example:
 
-const string json = "{'UserName':'Jackson', UserAge:22, Tel:'13800138000', Email:'gnllk@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
+const string json = "{'UserName':'Jackson', UserAge:22, Tel:'13800138000', Email:'Jackson@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
 
 JElement ele = JElement.Parse(json);
 Console.WriteLine("Name:\t{0}", ele["UserName"]);
