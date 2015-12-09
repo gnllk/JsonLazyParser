@@ -180,7 +180,7 @@ namespace JsonParser
                 return new JElement() { OriginalValue = json };
         }
 
-        public string RemoveAroundQuotes(string text)
+        public virtual string RemoveAroundQuotes(string text)
         {
             if (string.IsNullOrEmpty(text))
                 return text;
