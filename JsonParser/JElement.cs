@@ -79,7 +79,7 @@ namespace JsonParser
             get
             {
                 string val = Value;
-                if (!string.IsNullOrWhiteSpace(val) && val.Length > 2)
+                if (!string.IsNullOrWhiteSpace(val) && val.Length > 1)
                 {
                     return val.StartsWith("[");
                 }
