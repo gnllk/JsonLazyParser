@@ -184,6 +184,7 @@ namespace JsonParser
         {
             if (string.IsNullOrEmpty(text))
                 return text;
+            text = text.Trim();
             if (text.First() == '"' || text.First() == '\'')
                 text = text.Substring(1);
             if (text.Length > 0 && (text.Last() == '"' || text.Last() == '\''))
