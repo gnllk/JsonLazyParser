@@ -12,12 +12,13 @@ namespace JsonParser
         {
             try
             {
-                const string json = "{'UserName':'Jackson', UserAge:22, Tel:'13800138000', Email:'Jackson@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
+                const string json = "{'UserName':'Jackson', \"UserAge\":22, Tel:'13800138000', Email:'Jackson@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
                 JElement ele = JElement.Parse(json);
                 Say("Name original:\t{0}", ele["UserName"].OriginalValue);
                 Say("Name:\t{0}", ele["UserName"]);
                 Say("Age:\t{0}", ele["UserAge"]);
-                foreach (var item in ele["Cars"].Elements)
+                var cars = ele["Cars"];
+                foreach (var item in cars.Elements)
                 {
                     Say("Car:\t{0}", item);
                 }

@@ -10,10 +10,19 @@ namespace JsonParser
     /// </summary>
     public class JElement
     {
+        /// <summary>
+        /// name
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// origunal value
+        /// </summary>
         public string OriginalValue { get; set; }
 
+        /// <summary>
+        /// remove quotes around, remove include single and double quotes
+        /// </summary>
         public string Value
         {
             get
@@ -26,20 +35,36 @@ namespace JsonParser
             }
         }
 
+        /// <summary>
+        /// return the Value attr
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Value;
         }
 
+        /// <summary>
+        /// empty element constructor
+        /// </summary>
         public JElement()
         {
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="json">value</param>
         public JElement(string json)
         {
             OriginalValue = json;
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="name">name</param>
+        /// <param name="value">value</param>
         public JElement(string name, string value)
         {
             Name = name;
@@ -58,6 +83,9 @@ namespace JsonParser
             }
         }
 
+        /// <summary>
+        /// child elements
+        /// </summary>
         public List<JElement> Elements
         {
             get
@@ -66,6 +94,9 @@ namespace JsonParser
             }
         }
 
+        /// <summary>
+        /// determine the Name and OriginalValue is null or empry
+        /// </summary>
         public bool IsEmpty
         {
             get
@@ -74,6 +105,9 @@ namespace JsonParser
             }
         }
 
+        /// <summary>
+        /// determine whether this element is json array
+        /// </summary>
         public bool IsArray
         {
             get
@@ -87,6 +121,11 @@ namespace JsonParser
             }
         }
 
+        /// <summary>
+        /// split json to key value pairs
+        /// </summary>
+        /// <param name="json">json string</param>
+        /// <returns>element list</returns>
         protected virtual List<JElement> SplitJson(string json)
         {
             List<JElement> list = new List<JElement>();
@@ -123,11 +162,21 @@ namespace JsonParser
             return list;
         }
 
+        /// <summary>
+        /// find the first element by name
+        /// </summary>
+        /// <param name="name">name</param>
+        /// <returns>element</returns>
         public JElement Element(string name)
         {
             return SubElements.Find(e => e.Name == name) ?? new JElement();
         }
 
+        /// <summary>
+        /// index the element
+        /// </summary>
+        /// <param name="index">index</param>
+        /// <returns>element</returns>
         public JElement Element(int index)
         {
             var list = SubElements;
@@ -138,6 +187,11 @@ namespace JsonParser
             return new JElement();
         }
 
+        /// <summary>
+        /// find the first element by name
+        /// </summary>
+        /// <param name="name">name</param>
+        /// <returns>element</returns>
         public JElement this[string name]
         {
             get
@@ -146,6 +200,11 @@ namespace JsonParser
             }
         }
 
+        /// <summary>
+        /// index the element
+        /// </summary>
+        /// <param name="index">index</param>
+        /// <returns>element</returns>
         public JElement this[int index]
         {
             get
@@ -201,6 +260,11 @@ namespace JsonParser
                 return new JElement() { OriginalValue = json };
         }
 
+        /// <summary>
+        /// remove string quotes around 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public virtual string RemoveAroundQuotes(string text)
         {
             if (string.IsNullOrEmpty(text))
@@ -214,6 +278,11 @@ namespace JsonParser
             return text;
         }
 
+        /// <summary>
+        /// new JElement
+        /// </summary>
+        /// <param name="json">json string</param>
+        /// <returns>element</returns>
         public static JElement Parse(string json)
         {
             return new JElement(json);

@@ -14,7 +14,7 @@ namespace JsonParser.Test
         [TestMethod]
         public void TestJElement()
         {
-            const string json = "{'UserName':'Jackson', UserAge:22, Tel:'13800138000', Email:'Jackson@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
+            const string json = "{'UserName':'Jackson', \"UserAge\":22, Tel:'13800138000', Email:'Jackson@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
             JElement ele = JElement.Parse(json);
             ele.Should().NotBeNull();
             ele.IsArray.Should().BeFalse();
