@@ -17,6 +17,7 @@ namespace JsonParser.Test
             const string json = "{'UserName':'Jackson', UserAge:22, Tel:'13800138000', Email:'Jackson@mail.com', Cars:['Audi', 'BMW', 'Ferrari']}";
             JElement ele = JElement.Parse(json);
             ele.Should().NotBeNull();
+            ele.IsArray.Should().BeFalse();
             "Jackson".Should().Equals(ele["UserName"].Value);
             "22".Should().Equals(ele["UserAge"].Value);
             "13800138000".Should().Equals(ele["Tel"].Value);
@@ -26,6 +27,8 @@ namespace JsonParser.Test
             ele["Cars"].Value.Length.Should().Equals(3);
             ele["Cars"][100].Value.Should().BeNull();
             ele["novalue"].Value.Should().BeNull();
+            ele["Cars"].IsArray.Should().BeTrue();
+            ele["novalue"]["novalue"]["novalue"].IsEmpty.Should().BeTrue();
             ele["novalue"]["novalue"]["novalue"].Value.Should().BeNull();
         }
     }

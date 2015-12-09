@@ -66,6 +66,27 @@ namespace JsonParser
             }
         }
 
+        public bool IsEmpty
+        {
+            get
+            {
+                return string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(OriginalValue);
+            }
+        }
+
+        public bool IsArray
+        {
+            get
+            {
+                string val = Value;
+                if (!string.IsNullOrWhiteSpace(val) && val.Length > 2)
+                {
+                    return val.StartsWith("[");
+                }
+                return false;
+            }
+        }
+
         protected virtual List<JElement> SplitJson(string json)
         {
             List<JElement> list = new List<JElement>();
@@ -184,7 +205,8 @@ namespace JsonParser
         {
             if (string.IsNullOrEmpty(text))
                 return text;
-            text = text.Trim();
+            if (text.StartsWith(" ") || text.EndsWith(" "))
+                text = text.Trim();
             if (text.First() == '"' || text.First() == '\'')
                 text = text.Substring(1);
             if (text.Length > 0 && (text.Last() == '"' || text.Last() == '\''))
